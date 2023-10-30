@@ -1,0 +1,572 @@
+{
+    "name":"PremierLeagueCollection",
+    "teams":[
+       {
+          "teamName":"Arsenal",
+          "stadium":{
+             "name":"Emirates Stadium",
+             "capacity":60704
+          },
+          "wins":22,
+          "draws":3,
+          "defeats":13,
+          "goal_scored":61,
+          "goal_conceded":48,
+          "points":69,
+          "place":5,
+          "captain":{
+             "name":"Alexandre Lacazette",
+             "matches_played":30,
+             "goal":4,
+             "assist":7,
+             "yellow_card":0,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Mikel Arteta"
+             }
+          ]
+       },
+       {
+          "teamName":"Aston Villa",
+          "stadium":{
+             "name":"Villa Park",
+             "capacity":42682
+          },
+          "wins":13,
+          "draws":6,
+          "defeats":19,
+          "goal_scored":52,
+          "goal_conceded":54,
+          "points":45,
+          "place":14,
+          "captain":{
+             "name":"Tyrone Mings",
+             "matches_played":36,
+             "goal":1,
+             "assist":3,
+             "yellow_card":11,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Dean Smith"
+             },
+             {
+                "name":"Steven Gerrard"
+             }
+          ]
+       },
+       {
+          "teamName":"Brentford",
+          "stadium":{
+             "name":"Brentford Community Stadium",
+             "capacity":17250
+          },
+          "wins":13,
+          "draws":7,
+          "defeats":18,
+          "goal_scored":48,
+          "goal_conceded":56,
+          "points":46,
+          "place":13,
+          "captain":{
+             "name":"Pontus Jansson",
+             "matches_played":37,
+             "goal":3,
+             "assist":1,
+             "yellow_card":7,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Thomas Frank"
+             }
+          ]
+       },
+       {
+          "teamName":"Brighton & Hove Albion",
+          "stadium":{
+             "name":"Falmer Stadium",
+             "capacity":31800
+          },
+          "wins":12,
+          "draws":15,
+          "defeats":11,
+          "goal_scored":42,
+          "goal_conceded":44,
+          "points":51,
+          "place":9,
+          "captain":{
+             "name":"Lewis Dunk",
+             "matches_played":29,
+             "goal":1,
+             "assist":0,
+             "yellow_card":3,
+             "red_card":1
+          },
+          "manager":[
+             {
+                "name":"Graham Potter"
+             }
+          ]
+       },
+       {
+          "teamName":"Burnley",
+          "stadium":{
+             "name":"Turf Moor",
+             "capacity":21944
+          },
+          "wins":7,
+          "draws":14,
+          "defeats":17,
+          "goal_scored":34,
+          "goal_conceded":53,
+          "points":35,
+          "place":18,
+          "captain":{
+             "name":"Ben Mee",
+             "matches_played":21,
+             "goal":3,
+             "assist":0,
+             "yellow_card":3,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Sean Dyche"
+             },
+             {
+                "name":"Mike Jackson"
+             }
+          ]
+       },
+       {
+          "teamName":"Chelsea",
+          "stadium":{
+             "name":"Stamford Bridge",
+             "capacity":40834
+          },
+          "wins":21,
+          "draws":11,
+          "defeats":6,
+          "goal_scored":76,
+          "goal_conceded":33,
+          "points":74,
+          "place":3,
+          "captain":{
+             "name":"C�sar Azpilicueta",
+             "matches_played":27,
+             "goal":1,
+             "assist":2,
+             "yellow_card":3,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Thomas Tuchel"
+             }
+          ]
+       },
+       {
+          "teamName":"Crystal Palace",
+          "stadium":{
+             "name":"Selhurst Park",
+             "capacity":25486
+          },
+          "wins":11,
+          "draws":15,
+          "defeats":12,
+          "goal_scored":50,
+          "goal_conceded":46,
+          "points":48,
+          "place":12,
+          "captain":{
+             "name":"Luka Milivojevic",
+             "matches_played":15,
+             "goal":0,
+             "assist":0,
+             "yellow_card":1,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Patrick Vieira"
+             }
+          ]
+       },
+       {
+          "teamName":"Everton",
+          "stadium":{
+             "name":"Goodison Park ",
+             "capacity":39414
+          },
+          "wins":11,
+          "draws":6,
+          "defeats":21,
+          "goal_scored":43,
+          "goal_conceded":66,
+          "points":39,
+          "place":16,
+          "captain":{
+             "name":"S�amus Coleman",
+             "matches_played":6,
+             "goal":0,
+             "assist":0,
+             "yellow_card":0,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Rafael Benitez"
+             },
+             {
+                "name":"Frank Lampard"
+             }
+          ]
+       },
+       {
+          "teamName":"Leeds United",
+          "stadium":{
+             "name":"Elland Road",
+             "capacity":37792
+          },
+          "wins":9,
+          "draws":11,
+          "defeats":18,
+          "goal_scored":42,
+          "goal_conceded":79,
+          "points":38,
+          "place":17,
+          "captain":{
+             "name":"Liam Cooper",
+             "matches_played":6,
+             "goal":0,
+             "assist":0,
+             "yellow_card":1,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Marcelo Bielsa"
+             },
+             {
+                "name":"Jesse Marsch"
+             }
+          ]
+       },
+       {
+          "teamName":"Leicester City",
+          "stadium":{
+             "name":"King Power Stadium",
+             "capacity":32312
+          },
+          "wins":14,
+          "draws":10,
+          "defeats":14,
+          "goal_scored":62,
+          "goal_conceded":59,
+          "points":52,
+          "place":8,
+          "captain":{
+             "name":"Kasper Schmeichel",
+             "matches_played":37,
+             "goal":0,
+             "assist":0,
+             "yellow_card":2,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Brendan Rodgers"
+             }
+          ]
+       },
+       {
+          "teamName":"Liverpool",
+          "stadium":{
+             "name":"Anfield",
+             "capacity":53394
+          },
+          "wins":28,
+          "draws":8,
+          "defeats":2,
+          "goal_scored":94,
+          "goal_conceded":26,
+          "points":92,
+          "place":2,
+          "captain":{
+             "name":"Jordan Henderson",
+             "matches_played":35,
+             "goal":2,
+             "assist":5,
+             "yellow_card":3,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"J�rgen Klopp"
+             }
+          ]
+       },
+       {
+          "teamName":"Manchester City",
+          "stadium":{
+             "name":"City of Manchester Stadium",
+             "capacity":53400
+          },
+          "wins":29,
+          "draws":6,
+          "defeats":3,
+          "goal_scored":99,
+          "goal_conceded":26,
+          "points":93,
+          "place":1,
+          "captain":{
+             "name":"Fernandinho",
+             "matches_played":19,
+             "goal":2,
+             "assist":1,
+             "yellow_card":1,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Pep Guardiola"
+             }
+          ]
+       },
+       {
+          "teamName":"Manchester United",
+          "stadium":{
+             "name":"Old Trafford",
+             "capacity":74140
+          },
+          "wins":16,
+          "draws":10,
+          "defeats":12,
+          "goal_scored":57,
+          "goal_conceded":57,
+          "points":58,
+          "place":6,
+          "captain":{
+             "name":"Harry Maguire",
+             "matches_played":30,
+             "goal":1,
+             "assist":0,
+             "yellow_card":9,
+             "red_card":1
+          },
+          "manager":[
+             {
+                "name":"Ole Funnar Solskj�r"
+             },
+             {
+                "name":"Ralf Ragnick"
+             }
+          ]
+       },
+       {
+          "teamName":"Newcastle United",
+          "stadium":{
+             "name":"St James' Park",
+             "capacity":52305
+          },
+          "wins":13,
+          "draws":10,
+          "defeats":15,
+          "goal_scored":44,
+          "goal_conceded":62,
+          "points":49,
+          "place":11,
+          "captain":{
+             "name":"Jamaal Lascalles",
+             "matches_played":26,
+             "goal":1,
+             "assist":0,
+             "yellow_card":5,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Steve Bruce"
+             },
+             {
+                "name":"Eddie Howe"
+             }
+          ]
+       },
+       {
+          "teamName":"Norwich City",
+          "stadium":{
+             "name":"Carrow Road",
+             "capacity":27244
+          },
+          "wins":5,
+          "draws":7,
+          "defeats":26,
+          "goal_scored":23,
+          "goal_conceded":84,
+          "points":22,
+          "place":20,
+          "captain":{
+             "name":"Grant Hanley",
+             "matches_played":33,
+             "goal":1,
+             "assist":0,
+             "yellow_card":2,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Daniel Farke"
+             },
+             {
+                "name":"Dean Smith"
+             }
+          ]
+       },
+       {
+          "teamName":"Southampton",
+          "stadium":{
+             "name":"St Mary's Stadium",
+             "capacity":32384
+          },
+          "wins":9,
+          "draws":13,
+          "defeats":16,
+          "goal_scored":43,
+          "goal_conceded":67,
+          "points":40,
+          "place":15,
+          "captain":{
+             "name":"James Ward-Prowse",
+             "matches_played":36,
+             "goal":10,
+             "assist":5,
+             "yellow_card":3,
+             "red_card":1
+          },
+          "manager":[
+             {
+                "name":"Ralph Hasenh�ttl"
+             }
+          ]
+       },
+       {
+          "teamName":"Tottenham Hotspur",
+          "stadium":{
+             "name":"Tottenham Hotspur Stadium",
+             "capacity":62850
+          },
+          "wins":22,
+          "draws":5,
+          "defeats":11,
+          "goal_scored":69,
+          "goal_conceded":40,
+          "points":71,
+          "place":4,
+          "captain":{
+             "name":"Hugo Lloris",
+             "matches_played":38,
+             "goal":0,
+             "assist":0,
+             "yellow_card":2,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Nuno Esp�rito Santo"
+             },
+             {
+                "name":"Antonio Conte"
+             }
+          ]
+       },
+       {
+          "teamName":"Watford",
+          "stadium":{
+             "name":"Vicarage Road",
+             "capacity":22200
+          },
+          "wins":6,
+          "draws":5,
+          "defeats":27,
+          "goal_scored":34,
+          "goal_conceded":77,
+          "points":23,
+          "place":19,
+          "captain":{
+             "name":"Moussa Sissoko",
+             "matches_played":36,
+             "goal":2,
+             "assist":1,
+             "yellow_card":5,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Xisco Mu�oz"
+             },
+             {
+                "name":"Roy Hodgson"
+             }
+          ]
+       },
+       {
+          "teamName":"West Ham United",
+          "stadium":{
+             "name":"London Stadium",
+             "capacity":60000
+          },
+          "wins":16,
+          "draws":8,
+          "defeats":14,
+          "goal_scored":62,
+          "goal_conceded":59,
+          "points":52,
+          "place":7,
+          "captain":{
+             "name":"Mark Noble",
+             "matches_played":11,
+             "goal":1,
+             "assist":0,
+             "yellow_card":0,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"David Moyes"
+             }
+          ]
+       },
+       {
+          "teamName":"Wolverhamption Wanderers",
+          "stadium":{
+             "name":"Molineux Stadium",
+             "capacity":32050
+          },
+          "wins":15,
+          "draws":6,
+          "defeats":17,
+          "goal_scored":38,
+          "goal_conceded":43,
+          "points":51,
+          "place":10,
+          "captain":{
+             "name":"Conor Coady",
+             "matches_played":38,
+             "goal":4,
+             "assist":0,
+             "yellow_card":4,
+             "red_card":0
+          },
+          "manager":[
+             {
+                "name":"Bruno Lage"
+             }
+          ]
+       }
+    ]
+ }
