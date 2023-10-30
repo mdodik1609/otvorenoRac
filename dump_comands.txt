@@ -1,0 +1,10 @@
+# install mongoexport before using commands
+
+#export to JSON format from db
+mongoexport --host="localhost:27017" --collection=PremierLeagueCollection --out=premier_league.json
+
+#export to CSV format from db
+mongoexport --host="localhost:27017" --collection=PremierLeagueCollection --type=csv --fields=teamName,stadium/name,stadium/capacity,wins,draws,defeats,goal_scored,goal_conceded,points,place,captain/name,captain/matches_played,captain/goal,captain/assist,captain/yellow_card,captain/red_card,manager/0/name --out=/premier_league.csv
+
+#mongodump
+mongodump --queryFile=/premier_league.json #plus other info but i can dump it with MongoDBCompass
