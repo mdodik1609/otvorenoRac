@@ -1,0 +1,221 @@
+
+
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://or.fer.unizg.hr/orfilmovi.json",
+    "title": "OR Premier League stats",
+    "description": "Skup statiskite za otvoreno računarstvo.",
+    "type": "array",
+    "items": [
+      {
+        "type": "object",
+        "properties": {
+          "teamName": {
+            "type": "string"
+          },
+          "stadium": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "capacity": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "capacity"
+            ]
+          },
+          "wins": {
+            "type": "integer"
+          },
+          "draws": {
+            "type": "integer"
+          },
+          "defeats": {
+            "type": "integer"
+          },
+          "goal_scored": {
+            "type": "integer"
+          },
+          "goal_conceded": {
+            "type": "integer"
+          },
+          "points": {
+            "type": "integer"
+          },
+          "place": {
+            "type": "integer"
+          },
+          "captain": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "matches_played": {
+                "type": "integer"
+              },
+              "goal": {
+                "type": "integer"
+              },
+              "assist": {
+                "type": "integer"
+              },
+              "yellow_card": {
+                "type": "integer"
+              },
+              "red_card": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "matches_played",
+              "goal",
+              "assist",
+              "yellow_card",
+              "red_card"
+            ]
+          },
+          "manager": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "teamName",
+          "stadium",
+          "wins",
+          "draws",
+          "defeats",
+          "goal_scored",
+          "goal_conceded",
+          "points",
+          "place",
+          "captain",
+          "manager"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "teamName": {
+            "type": "string"
+          },
+          "stadium": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "capacity": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "capacity"
+            ]
+          },
+          "wins": {
+            "type": "integer"
+          },
+          "draws": {
+            "type": "integer"
+          },
+          "defeats": {
+            "type": "integer"
+          },
+          "goal_scored": {
+            "type": "integer"
+          },
+          "goal_conceded": {
+            "type": "integer"
+          },
+          "points": {
+            "type": "integer"
+          },
+          "place": {
+            "type": "integer"
+          },
+          "captain": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "matches_played": {
+                "type": "integer"
+              },
+              "goal": {
+                "type": "integer"
+              },
+              "assist": {
+                "type": "integer"
+              },
+              "yellow_card": {
+                "type": "integer"
+              },
+              "red_card": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "matches_played",
+              "goal",
+              "assist",
+              "yellow_card",
+              "red_card"
+            ]
+          },
+          "manager": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "teamName",
+          "stadium",
+          "wins",
+          "draws",
+          "defeats",
+          "goal_scored",
+          "goal_conceded",
+          "points",
+          "place",
+          "captain",
+          "manager"
+        ]
+      }
+    ]
+  }
+  
+  
