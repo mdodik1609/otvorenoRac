@@ -13,3 +13,7 @@ out/
 .settings
 .classpath
 .factorypath
+backend/.gradle/
+backend/.idea/
+backend/build/
+backend/target/
