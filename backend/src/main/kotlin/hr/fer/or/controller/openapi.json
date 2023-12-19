@@ -1,0 +1,307 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Team API",
+    "description": "An API for managing teams.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/v1/team/all": {
+      "get": {
+        "summary": "Get all teams",
+        "description": "Gets a list of all teams.",
+        "operationId": "getAllTeams",
+        "responses": {
+          "200": {
+            "description": "List of teams",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Team"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/v1/team/{teamId}": {
+      "get": {
+        "summary": "Get a team by ID",
+        "description": "Gets a team by its ID.",
+        "operationId": "getTeamById",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the team"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a team",
+        "description": "Deletes a team by its ID.",
+        "operationId": "deleteTeam",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the team"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          }
+        }
+      }
+    },
+    "/v1/team": {
+      "post": {
+        "summary": "Create a new team",
+        "description": "Creates a new team.",
+        "operationId": "createTeam",
+        "requestBody": {
+          "description": "Team to create",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Team"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Team created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a team",
+        "description": "Updates a team by its ID.",
+        "operationId": "updateTeam",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the team to update"
+          },
+          {
+            "name": "team",
+            "in": "body",
+            "required": true,
+            "description": "Team to update",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a team by place",
+        "description": "Gets a team by its place",
+        "operationId": "getTeamByPlace",
+        "parameters": [
+          {
+            "name": "place",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "description": "Place of the team"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a team by points",
+        "description": "Gets a team by its points",
+        "operationId": "getTeamsByPoints",
+        "parameters": [
+          {
+            "name": "points",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "description": "Points of the team"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a team by name",
+        "description": "Gets a team by its name",
+        "operationId": "getTeamByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Name of the team"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Team not found"
+          }
+        }
+      },
+      "components": {
+        "schemas": {
+          "Team": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Unique identifier of the team"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the team"
+              },
+              "place": {
+                "type": "integer",
+                "description": "Place of the team"
+              },
+              "points": {
+                "type": "integer",
+                "description": "Points of the team"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

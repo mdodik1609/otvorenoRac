@@ -2,6 +2,23 @@ micronaut:
   application:
     name: backend
 
+  openapi:
+    target:
+      file: backend-api.yml
+    property:
+      naming:
+        strategy: KEBAB_CASE
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+
+
 mongo:
-  uri: mongodb://localhost/?minPoolSize=12&maxPoolSize=12
-  database: OtvorenoRac
+  uri: mongodb://localhost:27017/teams?minPoolSize=12&maxPoolSize=12&authSource=admin
+  database: teams
+

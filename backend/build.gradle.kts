@@ -32,6 +32,10 @@ dependencies {
     implementation("org.litote.kmongo:kmongo-coroutine:4.8.0")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    /* Swagger */
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
 }
 
 
