@@ -1,9 +1,7 @@
 package hr.fer.or.model
 
-import com.fasterxml.jackson.annotation.JsonInclude
 import org.litote.kmongo.Id
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 data class Team(
     var _id: Id<Team>? = null,
     var teamName: String? = null,

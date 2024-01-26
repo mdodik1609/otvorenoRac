@@ -2,7 +2,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.8.22"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.8.22"
     id("com.google.devtools.ksp") version "1.8.22-1.0.11"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    // id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.0.4"
     id("io.micronaut.test-resources") version "4.0.4"
     id("io.micronaut.aot") version "4.0.4"
@@ -27,11 +27,14 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     runtimeOnly("org.mongodb:mongodb-driver-sync")
+    runtimeOnly("org.yaml:snakeyaml")
     testImplementation("io.micronaut:micronaut-http-client")
 
     implementation("org.litote.kmongo:kmongo-coroutine:4.8.0")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("io.micronaut.views:micronaut-views-thymeleaf")
 
     /* Swagger */
     annotationProcessor("io.micronaut.openapi:micronaut-openapi")

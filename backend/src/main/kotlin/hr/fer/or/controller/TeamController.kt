@@ -3,6 +3,7 @@ package hr.fer.or.controller
 import com.mongodb.MongoException
 import hr.fer.or.model.Team
 import hr.fer.or.service.TeamService
+import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MutableHttpResponse
 import io.micronaut.http.annotation.*
@@ -14,58 +15,57 @@ class TeamController(
     private val teamService: TeamService
 ) {
 
-    @Get("/all")
-    suspend fun getAllTeams(
-    ): MutableHttpResponse<List<Team>> {
+    @Get
+    suspend fun getAllTeam():HttpResponse<Any> {
         return try {
             val teams = teamService.getAllTeams()
-            SimpleHttpResponseFactory().ok(teams)
+            HttpResponse.status<List<Team>>(HttpStatus.OK).body(teams)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<List<Team>>(HttpStatus.BAD_REQUEST, "Team not found.")
+            HttpResponse.notFound()
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<List<Team>>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest()
         }
     }
 
     @Get("/{teamId}")
     suspend fun getTeamById(
         @QueryValue("teamId") teamId: String
-    ): MutableHttpResponse<*> {
+    ): HttpResponse<Any> {
         return try {
             val team = teamService.getTeamById(teamId)
-            SimpleHttpResponseFactory().ok(team)
+            HttpResponse.ok(team)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Team not found.")
+            HttpResponse.notFound("Team not found.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
     @Delete("/{teamId}")
     suspend fun deleteTeam(
         @QueryValue("teamId") teamId: String
-    ): MutableHttpResponse<Boolean> {
+    ): MutableHttpResponse<*> {
         return try {
             val result = teamService.deleteTeamById(teamId)
             SimpleHttpResponseFactory().status<Boolean>(HttpStatus.OK, true)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<Boolean>(HttpStatus.BAD_REQUEST, "Team not inserted.")
+            HttpResponse.notFound("Team not deleted.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Boolean>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
     @Post
     suspend fun createTeam(
         @Body team: Team
-    ): MutableHttpResponse<Team> {
+    ): MutableHttpResponse<*> {
         return try {
             val team = teamService.createOrUpdateTeam(team)
             SimpleHttpResponseFactory().ok(team)
         } catch (e: MongoException) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Team not inserted.")
+            HttpResponse.badRequest("Team not created.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
@@ -74,14 +74,14 @@ class TeamController(
     suspend fun updateTeam(
         @QueryValue("teamId") teamId: String,
         @Body team: Team
-    ): MutableHttpResponse<Team> {
+    ): MutableHttpResponse<*> {
         return try {
             val team = teamService.updateTeamName(team, teamId)
             SimpleHttpResponseFactory().ok(team)
         } catch (e: MongoException) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Team not updated.")
+            HttpResponse.notFound("Team not updated.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
@@ -90,28 +90,28 @@ class TeamController(
     @Get("/place/{place}")
     suspend fun getTeamsByPlace(
         @QueryValue("place") place: Int
-    ): MutableHttpResponse<Team> {
+    ): MutableHttpResponse<*> {
         return try {
             val team = teamService.getTeamByPlace(place)
             SimpleHttpResponseFactory().ok(team)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.NOT_FOUND, "Team not found")
+            HttpResponse.notFound("Team not found.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
     @Get("/points/{points}")
     suspend fun getTeamsByPoints(
         @QueryValue("points") points: Int
-    ): MutableHttpResponse<Team> {
+    ): MutableHttpResponse<*> {
         return try {
             val team = teamService.getTeamByPoints(points)
             SimpleHttpResponseFactory().ok(team)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.NOT_FOUND, "Team not found")
+            HttpResponse.notFound("Team not found.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<Team>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 
@@ -124,9 +124,9 @@ class TeamController(
             val team = teamService.getTeamByName(name)
             SimpleHttpResponseFactory().ok(team)
         } catch (e: NoSuchElementException) {
-            SimpleHttpResponseFactory().status<String>(HttpStatus.NOT_FOUND, "Team not found")
+            HttpResponse.notFound("Team not found.")
         } catch (e: Exception) {
-            SimpleHttpResponseFactory().status<String>(HttpStatus.BAD_REQUEST, "Bad request")
+            HttpResponse.badRequest("Bad request.")
         }
     }
 

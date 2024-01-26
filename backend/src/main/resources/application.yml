@@ -2,6 +2,19 @@ micronaut:
   application:
     name: backend
 
+  security:
+    authentication: idtoken # <1>
+    oauth2:
+      clients:
+        auth0: # <2>
+          client-id: 'fEeaaenRz8koCxo5zcM0EsPvZEutXsGa' # <3>
+          client-secret: 'pEsKb9jqg-p98hvjSgGZnomOobwNYO8E3p9oRE2e7i2woBkiC1Devegx7hnL6ru_' # <4>
+          openid:
+            issuer: 'https://micronautguides.eu.auth0.com/' # <5>
+    endpoints:
+      logout:
+        get-allowed: true # <6>
+
   openapi:
     target:
       file: backend-api.yml

@@ -1,15 +1,11 @@
 package hr.fer.or.model
 
-import com.fasterxml.jackson.annotation.JsonInclude
 import org.litote.kmongo.Id
 
-@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 data class Manager(
     var name: String? = null
 )
 
-
-@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 data class Player(
     var name: String? = null,
     var matches_played: Int? = null,
