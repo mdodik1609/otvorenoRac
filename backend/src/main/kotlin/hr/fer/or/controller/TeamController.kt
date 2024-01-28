@@ -7,6 +7,7 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MutableHttpResponse
 import io.micronaut.http.annotation.*
+import io.micronaut.http.server.cors.CrossOrigin
 import io.micronaut.http.simple.SimpleHttpResponseFactory
 import kotlin.NoSuchElementException
 
@@ -15,6 +16,7 @@ class TeamController(
     private val teamService: TeamService
 ) {
 
+    @CrossOrigin
     @Get
     suspend fun getAllTeam():HttpResponse<Any> {
         return try {

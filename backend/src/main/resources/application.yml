@@ -1,35 +1,13 @@
 micronaut:
   application:
     name: backend
+  server:
+    cors:
+      enabled: true
 
-  security:
-    authentication: idtoken # <1>
-    oauth2:
-      clients:
-        auth0: # <2>
-          client-id: 'fEeaaenRz8koCxo5zcM0EsPvZEutXsGa' # <3>
-          client-secret: 'pEsKb9jqg-p98hvjSgGZnomOobwNYO8E3p9oRE2e7i2woBkiC1Devegx7hnL6ru_' # <4>
-          openid:
-            issuer: 'https://micronautguides.eu.auth0.com/' # <5>
-    endpoints:
-      logout:
-        get-allowed: true # <6>
-
-  openapi:
-    target:
-      file: backend-api.yml
-    property:
-      naming:
-        strategy: KEBAB_CASE
-  router:
-    static-resources:
-      swagger:
-        paths: classpath:META-INF/swagger
-        mapping: /swagger/**
-      swagger-ui:
-        paths: classpath:META-INF/swagger/views/swagger-ui
-        mapping: /swagger-ui/**
-
+      configurations:
+        web:
+          allowed-origins-regex: 'http://127.0.0.1:3000'
 
 mongo:
   uri: mongodb://localhost:27017/teams?minPoolSize=12&maxPoolSize=12&authSource=admin

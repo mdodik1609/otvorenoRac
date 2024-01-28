@@ -9,14 +9,12 @@
         //const url = 'mongodb://localhost:27017/?minPoolSize=12&maxPoolSize=12&authSource=admin';
         const url = 'http://localhost:8080/v1/team';
         const xhr = new XMLHttpRequest();
-        let myCustomData;
         xhr.open('GET', url);
         xhr.responseType = 'json';
         xhr.onload = function() {
 
             if (xhr.status === 200) {
                 const data = xhr.response;
-                myCustomData = data;
                 const container = document.getElementById('data-container');
 
                 const headerRow = document.createElement('tr');
@@ -109,119 +107,52 @@
                 <option value="captainYellowCard">Captain Yellow Card</option>
                 <option value="captainRedCard">Captain Red Card</option>
                 <option value="managerName">Manager Name</option>
-                <option value="wc">Wildcard</option>
                 `;
 
                 const searchInput = document.createElement('input');
                 searchInput.type = 'text';
 
-                function flattenObject(ob) {
-                    var toReturn = {};
-                    for (var i in ob) {
-                        if (!ob.hasOwnProperty(i)) continue;
-
-                        if ((typeof ob[i]) == 'object' && ob[i] !== null) {
-                            var flatObject = flattenObject(ob[i]);
-                            for (var x in flatObject) {
-                                if (!flatObject.hasOwnProperty(x)) continue;
-
-                                toReturn[i + '.' + x] = flatObject[x];
-                            }
-                        } else {
-                            toReturn[i] = ob[i];
-                        }
-                    }
-                    return toReturn;
-                }
-
-                function convertToCSV(arr) {
-                    const flattened = arr.map(obj => flattenObject(obj))
-
-                    return flattened.map(it => {
-                        return Object.values(it).toString()
-                    }).join('\n') + '\n';
-                }
-
                 const searchButton = document.createElement('button');
                 searchButton.textContent = 'Search';
-                const downloadButton = document.createElement('button');
-                downloadButton.textContent = 'DownloadJSON'
-                const downloadButtonCSV = document.createElement('button');
-                downloadButtonCSV.textContent = 'DownloadCSV'
-                downloadButton.addEventListener('click', function() {
-                    const blob = new Blob(myCustomData.map(
-                        element => JSON.stringify(element)
-                    ), { type: 'application/json' });
-                    const url = URL.createObjectURL(blob);
-                    const anchor = document.createElement('a');
-                    anchor.href = url;
-                    anchor.download = 'downloadedFileJSON.json';
-                    anchor.click();
-                    URL.revokeObjectURL(url);
-                })
-                downloadButtonCSV.addEventListener('click', function() {
-                    const dataHeaders = [Object.keys(flattenObject(myCustomData[0]))].concat(myCustomData)
-                    const blob = new Blob(dataHeaders.map(
-                        element => convertToCSV([element])
-                    ), { type: 'text/csv' });
-                    const url = URL.createObjectURL(blob);
-                    const anchor = document.createElement('a');
-                    anchor.href = url;
-                    anchor.download = 'downloadedFileCSV.csv';
-                    anchor.click();
-                    URL.revokeObjectURL(url);
-                })
                 searchButton.addEventListener('click', function() {
-                    var filteredData;
-                    if (filter.value === 'wc') {
-                        filteredData = data.filter(
-                            team => { 
-                                const flatTeam = flattenObject(team)
-                                return Object.keys(flatTeam).some(key => {
-                                    const temp = '' + flatTeam[key]
-                                    return temp.toLowerCase().includes(searchInput.value.toLowerCase())
-                            })
-                        })
-                    } else {
-                        filteredData = data.filter(team => team[filter.value].toLowerCase().includes(searchInput.value.toLowerCase()));
-                    }
-                    myCustomData = filteredData;
+                    const filteredData = data.filter(team => team[filter.value].toLowerCase().includes(searchInput.value.toLowerCase()));
+
                     container.innerHTML = '';
 
                     const headerRow = document.createElement('tr');
 
                     for (const column of Object.keys(data[0])) {
-                        const headerCell = document.createElement('th');
+                    const headerCell = document.createElement('th');
 
-                        if (column === 'stadium') {
-                            headerCell.textContent = 'Stadium';
-                            headerCell.appendChild(document.createTextNode('Name'));
-                            headerCell.appendChild(document.createTextNode('Capacity'));
-                        } else if (column === 'captain') {
-                            headerCell.textContent = 'Captain';
-                            headerCell.appendChild(document.createTextNode('Name'));
-                            headerCell.appendChild(document.createTextNode('Matches Played'));
-                            headerCell.appendChild(document.createTextNode('Goal'));
-                            headerCell.appendChild(document.createTextNode('Assist'));
-                            headerCell.appendChild(document.createTextNode('Yellow Card'));
-                            headerCell.appendChild(document.createTextNode('Red Card'));
-                        } else if (column === 'manager') {
-                            headerCell.textContent = 'Manager';
-                            headerCell.appendChild(document.createTextNode('Name'));
-                        } else if (column === '_id') {
-                            headerCell.textContent = 'Team ID';
-                        } else {
-                            headerCell.textContent = column;
-                        }
+                    if (column === 'stadium') {
+                        headerCell.textContent = 'Stadium';
+                        headerCell.appendChild(document.createTextNode('Name'));
+                        headerCell.appendChild(document.createTextNode('Capacity'));
+                    } else if (column === 'captain') {
+                        headerCell.textContent = 'Captain';
+                        headerCell.appendChild(document.createTextNode('Name'));
+                        headerCell.appendChild(document.createTextNode('Matches Played'));
+                        headerCell.appendChild(document.createTextNode('Goal'));
+                        headerCell.appendChild(document.createTextNode('Assist'));
+                        headerCell.appendChild(document.createTextNode('Yellow Card'));
+                        headerCell.appendChild(document.createTextNode('Red Card'));
+                    } else if (column === 'manager') {
+                        headerCell.textContent = 'Manager';
+                        headerCell.appendChild(document.createTextNode('Name'));
+                    } else if (column === '_id') {
+                        headerCell.textContent = 'Team ID';
+                    } else {
+                        headerCell.textContent = column;
+                    }
 
-                        headerRow.appendChild(headerCell);
+                    headerRow.appendChild(headerCell);
                     }
 
                     container.appendChild(headerRow);
 
                     for (const team of filteredData) {
                         const dataRow = document.createElement('tr');
-                        console.log(team.captain.name)
+
                         dataRow.innerHTML = `
                         <td>${team._id.id.date}</td>
                         <td>${team.teamName}</td>
@@ -248,15 +179,11 @@
                     container.appendChild(filter);
                     container.appendChild(searchInput);
                     container.appendChild(searchButton);
-                    container.appendChild(downloadButton);
-                    container.appendChild(downloadButtonCSV);
                 });
 
                 container.appendChild(filter);
                 container.appendChild(searchInput);
                 container.appendChild(searchButton);
-                container.appendChild(downloadButton);
-                container.appendChild(downloadButtonCSV);
             } else {
                 console.error('Error:', xhr.statusText);
             }
